@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:htext="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+
+    <me.itangqi.waveloadingview.WaveLoadingView
+        android:id="@+id/loadingIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        app:wlv_shapeType="rectangle"
+        app:wlv_round_rectangle="true"
+        app:wlv_triangle_direction="north"
+        app:wlv_titleCenterStrokeWidth="3dp"
+        app:wlv_titleCenter="Loading..."
+        app:wlv_titleCenterColor="@android:color/white"
+        app:wlv_titleCenterSize="20sp"
+        app:wlv_waveAmplitude="60"
+        app:wlv_waveColor="#ee0099cc"/>
+
+    <com.hanks.htextview.HTextView
+        android:id="@+id/titleSplash"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:layout_marginTop="@dimen/default_comp_margin"
+        htext:animateType="anvil" />
+
+    <Button
+        android:id="@+id/btReady"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ready to go"
+        android:background="@drawable/background_white_round"
+        android:textColor="@android:color/white"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/fab_margin"/>
+</FrameLayout>
+

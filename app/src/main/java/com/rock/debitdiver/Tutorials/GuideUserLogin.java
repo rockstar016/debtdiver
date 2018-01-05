@@ -1,0 +1,39 @@
+package com.rock.debitdiver.Tutorials;
+
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.rock.debitdiver.R;
+
+
+public class GuideUserLogin extends TutorialBaseFragment {
+    public GuideUserLogin() {
+        // Required empty public constructor
+    }
+
+    public static GuideUserLogin newInstance() {
+        GuideUserLogin fragment = new GuideUserLogin();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_guide_user_login, container, false);
+        return rootView;
+    }
+
+}

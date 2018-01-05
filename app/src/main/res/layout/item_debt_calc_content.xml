@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:id="@+id/debt_calc_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="4dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/txtName"
+            android:text="John Doe: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$"
+            android:textSize="@dimen/large_text_size"
+            android:textColor="@color/colorPrimaryDark"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtAmount"
+            android:layout_weight="2"
+            android:textSize="@dimen/large_text_size"
+            android:enabled="false"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:text="123"/>
+        <CheckBox
+            android:id="@+id/finished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/colorAccent"
+            android:checked="true"
+            android:visibility="gone"
+            android:clickable="false"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btEdit"
+            android:src="@drawable/ic_edit_black_24dp"
+            android:background="@android:color/transparent"
+            android:padding="8dp"
+            android:tint="@color/colorAccent"
+            android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGray"/>
+</LinearLayout>

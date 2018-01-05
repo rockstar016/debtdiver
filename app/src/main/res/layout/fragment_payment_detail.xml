@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.rock.debitdiver.MainPage.PaymentDetailFragment">
+
+    <FrameLayout
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_blue_round"
+            android:layout_margin="4dp"
+            android:id="@+id/btPrint"
+            android:text="Print"
+            android:textColor="@color/colorPrimary"/>
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_gravity="center_vertical|left"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_print_white_24dp"
+            android:tint="@color/colorAccent" />
+    </FrameLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerContent"
+        android:layout_below="@id/txtTitle"/>
+</RelativeLayout>

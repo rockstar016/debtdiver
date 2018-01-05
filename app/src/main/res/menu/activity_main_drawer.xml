@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single" android:id="@+id/group1">
+
+        <item
+            android:id="@+id/navCalculate"
+            android:icon="@drawable/ic_nav_calculation"
+            android:title="Calculate" />
+
+        <item
+            android:id="@+id/navDebit"
+            android:icon="@drawable/ic_nav_debit"
+            android:title="Debits" />
+
+        <item
+            android:id="@+id/navPayment"
+            android:icon="@drawable/ic_credit_paymentinfo"
+            android:title="History" />
+
+    </group>
+
+    <group android:checkableBehavior="single" android:id="@+id/group2">
+
+        <item
+            android:id="@+id/navExit"
+            android:icon="@drawable/ic_log_out"
+            android:title="Log out" />
+
+    </group>
+</menu>

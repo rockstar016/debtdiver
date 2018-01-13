@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
 import com.rock.debitdiver.Register.RegisterEmail;
 import com.rock.debitdiver.Register.RegisterProfile;
@@ -24,6 +26,7 @@ public class TutorialActivity extends AppCompatActivity {
     CircleIndicator indicator;
     WaveLoadingView loadingIndicator;
     TutorialAdapter tutorialAdapter;
+    Button btSkip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,7 @@ public class TutorialActivity extends AppCompatActivity {
         tutorialViewPager = findViewById(R.id.tutorialViewPager);
         indicator = findViewById(R.id.indicator);
         loadingIndicator = findViewById(R.id.loadingIndicator);
+        btSkip = (Button)findViewById(R.id.btSkip);
 
         loadingIndicator.setProgressValue(80);
         loadingIndicator.setAmplitudeRatio(60);
@@ -53,6 +57,12 @@ public class TutorialActivity extends AppCompatActivity {
             @Override
             public void onPageScrollStateChanged(int state) {
 
+            }
+        });
+        btSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

@@ -15,10 +15,11 @@
     <string name="or">OR</string>
     <string name="don_t_have_account_yet_click_here">don\'t have account yet? click here</string>
     <string name="log_in">log in</string>
-    <string name="welcome_to_debit_diver">Welcome to Debit Diver</string>
+    <string name="welcome_to_debit_diver">Welcome to Debt Diver</string>
     <string name="required_field">fill out it</string>
     <string name="title_activity_add_debit">AddDebitActivity</string>
     <string name="confirmPassword">Confirm Password</string>
     <string name="error_on_server">Error on server</string>
     <string name="invalid">Authentication is invalid. Log in again.</string>
+    <string name="verification">We have just sent you verification Email. please confirm your email.</string>
 </resources>

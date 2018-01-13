@@ -53,7 +53,7 @@ public class SplashActivity extends AppCompatActivity {
 
     public void ShowButton()
     {
-        mWaveLoadingView.setCenterTitle("Tap below button");
+        mWaveLoadingView.setCenterTitle("Tap button below");
         btReady.setVisibility(View.VISIBLE);
         YoYo.with(Techniques.SlideInUp)
                 .duration(350)

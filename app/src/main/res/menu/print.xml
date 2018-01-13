@@ -4,6 +4,7 @@
     <item android:id="@+id/print"
         android:title="Print"
         app:showAsAction="always"
+        android:orderInCategory="11"
         android:icon="@drawable/ic_print_white_24dp"
         android:iconTint="@color/white">
     </item>

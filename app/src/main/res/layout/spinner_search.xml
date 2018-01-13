@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+    <TextView
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose date filter"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:layout_marginBottom="30dp"/>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_field_layout_background"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+        <Spinner
+            android:id="@+id/searchSpinner"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content">
+        </Spinner>
+    </FrameLayout>
+
+
+</LinearLayout>

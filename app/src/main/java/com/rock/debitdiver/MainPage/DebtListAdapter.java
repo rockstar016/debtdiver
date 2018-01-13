@@ -1,19 +1,16 @@
 package com.rock.debitdiver.MainPage;
 
 import android.app.Activity;
-import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
-import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.rock.debitdiver.Model.DebtInfo;
 import com.rock.debitdiver.R;
-
 import java.util.ArrayList;
 
 public class DebtListAdapter extends RecyclerView.Adapter<DebtListAdapter.DebtListItemViewHolder> {
@@ -68,12 +65,21 @@ public class DebtListAdapter extends RecyclerView.Adapter<DebtListAdapter.DebtLi
             ((DebtListContentItem)holder).setListener(itemClickListener);
             DebtInfo item = debtLists.get(position);
             ((DebtListContentItem) holder).txtName.setText(item.getName());
-            ((DebtListContentItem) holder).txtCount.setText(item.getAmount() + " / " + item.getCurrent_paid());
+            if(Double.parseDouble(item.getCurrent_paid()) >= Double.parseDouble(item.getAmount())){
+                ((DebtListContentItem) holder).txtCount.setText("Paid in Full");
+                ((DebtListContentItem) holder).pgStatus.setProgressColor(ContextCompat.getColor(parentActivity, R.color.green));
+                ((DebtListContentItem) holder).pgStatus.setIconBackgroundColor(ContextCompat.getColor(parentActivity, R.color.green_icon));
+            }
+            else{
+                ((DebtListContentItem) holder).txtCount.setText(item.getAmount() + " / " + item.getCurrent_paid());
+                ((DebtListContentItem) holder).pgStatus.setProgressColor(ContextCompat.getColor(parentActivity, R.color.colorPrimary));
+                ((DebtListContentItem) holder).pgStatus.setIconBackgroundColor(ContextCompat.getColor(parentActivity, R.color.colorPrimaryDark));
+            }
             ((DebtListContentItem) holder).pgStatus.setMax(Float.parseFloat(item.getAmount()));
             ((DebtListContentItem) holder).pgStatus.setProgress(Float.parseFloat(item.getCurrent_paid()));
         }
         else if(holder instanceof DebtListFooterItem){
-            ((DebtListFooterItem) holder).debtTotal.setText(debtTotal + " / " + String.format("%.1f", paidTotal));
+            ((DebtListFooterItem) holder).debtTotal.setText(String.format("%.2f", debtTotal) + " / " + String.format("%.2f", paidTotal));
         }
     }
 

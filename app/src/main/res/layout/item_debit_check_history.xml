@@ -11,28 +11,37 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <LinearLayout
+            android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
             <TextView
                 android:id="@+id/payDate"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/fab_margin"
-                android:text="2017-01-09"
+                android:padding="10dp"
+                android:text="2017-01-09 12:12:12"
                 android:layout_gravity="center"/>
             <TextView
                 android:id="@+id/oncePayTotal"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:textSize="@dimen/large_text_size"
                 android:textColor="@android:color/black"
                 android:text="2098$"
                 android:textAlignment="gravity"
                 android:gravity="center_horizontal"
                 android:layout_gravity="center_vertical"/>
+            <ImageView
+                android:id="@+id/dropDown"
+                android:layout_gravity="center"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_arrow_drop_down_black_24dp" />
         </LinearLayout>
 
 
@@ -40,10 +49,20 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/colorGray"/>
-        <LinearLayout
+        <com.github.aakira.expandablelayout.ExpandableLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/containerHistoryItem"/>
+            android:id="@+id/expandableLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/containerHistoryItem"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </com.github.aakira.expandablelayout.ExpandableLinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

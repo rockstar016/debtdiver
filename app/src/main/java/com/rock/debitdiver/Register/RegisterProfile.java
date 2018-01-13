@@ -1,8 +1,10 @@
 package com.rock.debitdiver.Register;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import com.rock.debitdiver.ApiUtils.ServerURLs;
 import com.rock.debitdiver.R;
 import com.rock.debitdiver.RegisterActivity;
 import com.rock.debitdiver.TutorialActivity;
+import com.rock.debitdiver.Utils.DialogUtil;
 import com.rock.debitdiver.Utils.StringCheckUtil;
 
 import org.json.JSONObject;
@@ -84,8 +87,18 @@ public class RegisterProfile extends RegisterBaseFragment {
                     JSONObject returnValue = new JSONObject(result.toString());
                     if(returnValue.getBoolean("result")){
                         Intent tutorial = new Intent(getContext(), TutorialActivity.class);
-                        startActivity(tutorial);
-                        ParentActivity.finish();
+                        new AlertDialog.Builder(getActivity())
+                                .setTitle("Attention")
+                                .setMessage(getString(R.string.verification))
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        startActivity(tutorial);
+                                        ParentActivity.finish();
+                                    }
+                                })
+                                .create()
+                                .show();
                     }
                     else{
                         Toast.makeText(ParentActivity, returnValue.getString("msg"), Toast.LENGTH_LONG).show();

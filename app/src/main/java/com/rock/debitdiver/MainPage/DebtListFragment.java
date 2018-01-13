@@ -57,6 +57,7 @@ public class DebtListFragment extends MainBaseFragment implements DebtListAdapte
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
         }
     }

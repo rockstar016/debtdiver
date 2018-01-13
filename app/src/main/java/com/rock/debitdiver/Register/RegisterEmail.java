@@ -109,6 +109,14 @@ public class RegisterEmail extends RegisterBaseFragment {
                 confirmPassword.getEditText().setError("Password don't match");
                 return;
             }
+            if(StringCheckUtil.isLength(txtPassword.getEditText(), 6)){
+                YoYo.with(Techniques.Shake)
+                        .duration(700)
+                        .repeat(1)
+                        .playOn(txtPassword);
+                txtPassword.getEditText().setError("Password length should be at least 6 characters.");
+                return;
+            }
             ParentActivity.email = txtEmail.getEditText().getText().toString();
             ParentActivity.password = txtPassword.getEditText().getText().toString();
             ParentActivity.showProfilePage();

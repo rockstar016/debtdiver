@@ -157,7 +157,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 getSupportActionBar().setTitle("Calculation");
                 break;
             case DEBTFRAGMENT:
-                getSupportActionBar().setTitle("Debt Paid");
+                getSupportActionBar().setTitle("Debts Paid");
                 break;
             case PAYMENTFRAGMENT:
                 getSupportActionBar().setTitle("Payment History");
@@ -209,11 +209,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.print){
-            if(currentFragment == DEBTFRAGMENT){
-                Toast.makeText(this, getSupportActionBar().getTitle(), Toast.LENGTH_LONG).show();
-            }
+        switch (item.getItemId()){
+            case R.id.print:
+                //if(currentFragment == DEBTFRAGMENT){
+                //    Toast.makeText(this, getSupportActionBar().getTitle(), Toast.LENGTH_LONG).show();
+                //}
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return true;
     }
 }

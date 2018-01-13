@@ -29,6 +29,7 @@ public class AddDebitActivity extends BaseActivity {
     public static final String EDIT_POSITION = "Edit_position";
     int position;
     TextInputLayout txtName, txtAmount, txtPaypalAddress;
+    TextInputLayout debtPhone, debtAddress, debtAccountNumber;
     Button btAdd;
     boolean isEdit;
     @Override
@@ -46,23 +47,33 @@ public class AddDebitActivity extends BaseActivity {
         txtName = findViewById(R.id.txtName);
         txtAmount = findViewById(R.id.txtAmount);
         txtPaypalAddress = findViewById(R.id.txtPaypal);
+
+        debtPhone = findViewById(R.id.debtPhone);
+        debtAccountNumber = findViewById(R.id.debtAccountNumber);
+        debtAddress = findViewById(R.id.debtAddress);
         btAdd = findViewById(R.id.btAdd);
 
         if(isEdit) {
             btAdd.setText("Save");
-            getSupportActionBar().setTitle("Edit Debit");
+            getSupportActionBar().setTitle("Edit Debt");
             position = getIntent().getIntExtra(EDIT_POSITION, 0);
             DebtInfo selected_item = getMainApp().debtLists.get(position);
             txtAmount.getEditText().setText(selected_item.getAmount());
             txtPaypalAddress.getEditText().setText(selected_item.getPaypal_address());
             txtName.getEditText().setText(selected_item.getName());
+            debtPhone.getEditText().setText(selected_item.getDebtPhone());
+            debtAccountNumber.getEditText().setText(selected_item.getDebtAccountNumber());
+            debtAddress.getEditText().setText(selected_item.getDebtAddress());
         }
         else {
             btAdd.setText("Add");
-            getSupportActionBar().setTitle("Add Debit");
+            getSupportActionBar().setTitle("Add Debt");
             txtAmount.getEditText().setText("");
             txtPaypalAddress.getEditText().setText("");
             txtName.getEditText().setText("");
+            debtAddress.getEditText().setText("");
+            debtAccountNumber.getEditText().setText("");
+            debtPhone.getEditText().setText("");
         }
 
         btAdd.setOnClickListener(v -> {
@@ -107,6 +118,33 @@ public class AddDebitActivity extends BaseActivity {
             txtPaypalAddress.getEditText().setError("Invalid email address");
             return;
         }
+        if(StringCheckUtil.isEmpty(this, debtAddress.getEditText()))
+        {
+            debtAddress.getEditText().setError("Fill out it, please");
+            YoYo.with(Techniques.Shake)
+                    .repeat(1)
+                    .duration(500)
+                    .playOn(debtAddress);
+            return;
+        }
+        if(StringCheckUtil.isEmpty(this, debtPhone.getEditText()))
+        {
+            debtPhone.getEditText().setError("Fill out it, please");
+            YoYo.with(Techniques.Shake)
+                    .repeat(1)
+                    .duration(500)
+                    .playOn(debtPhone);
+            return;
+        }
+        if(StringCheckUtil.isEmpty(this, debtAccountNumber.getEditText()))
+        {
+            debtAccountNumber.getEditText().setError("Fill out it, please");
+            YoYo.with(Techniques.Shake)
+                    .repeat(1)
+                    .duration(500)
+                    .playOn(debtAccountNumber);
+            return;
+        }
         try
         {
             if(isEdit){
@@ -141,6 +179,10 @@ public class AddDebitActivity extends BaseActivity {
             values.put("DEBT_NAME", txtName.getEditText().getText().toString());
             values.put("DEBT_EMAIL", txtPaypalAddress.getEditText().getText().toString());
             values.put("DEBT_AMOUNT", txtAmount.getEditText().getText().toString());
+            values.put("DEBT_PHONE", debtPhone.getEditText().getText().toString());
+            values.put("DEBT_ADDRESS", debtAddress.getEditText().getText().toString());
+            values.put("DEBT_ACCOUNT_NUMBER", debtAccountNumber.getEditText().getText().toString());
+
             ApiCallWrapper service = new ApiCallWrapper(this, POST, true, "EditDebt", ServerURLs.EDIT_DEBT_URL, headerValues, values, new AsyncTaskCallback() {
                 @Override
                 public void onResultService(Object result) {
@@ -176,6 +218,9 @@ public class AddDebitActivity extends BaseActivity {
         values.put("DEBT_NAME", txtName.getEditText().getText().toString());
         values.put("DEBT_EMAIL", txtPaypalAddress.getEditText().getText().toString());
         values.put("DEBT_AMOUNT", txtAmount.getEditText().getText().toString());
+        values.put("DEBT_PHONE", debtPhone.getEditText().getText().toString());
+        values.put("DEBT_ADDRESS", debtAddress.getEditText().getText().toString());
+        values.put("DEBT_ACCOUNT_NUMBER", debtAccountNumber.getEditText().getText().toString());
         ApiCallWrapper service = new ApiCallWrapper(this, POST, true, "AddDebt", ServerURLs.ADD_DEBT_URL, headerValues, values, new AsyncTaskCallback() {
             @Override
             public void onResultService(Object result) {

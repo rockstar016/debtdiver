@@ -110,7 +110,7 @@ public class DebtCalculatorFragment extends MainBaseFragment implements DebtCalc
         }
         values.put("AMOUNT", String.format("%.1f", total));
 
-        ApiCallWrapper service = new ApiCallWrapper(parentActivity, POST, true, "AddDebt", ServerURLs.INSERT_PAY_URL, headerValues, values, new AsyncTaskCallback() {
+        ApiCallWrapper service = new ApiCallWrapper(parentActivity, POST, true, "Paying", ServerURLs.INSERT_PAY_URL, headerValues, values, new AsyncTaskCallback() {
             @Override
             public void onResultService(Object result) {
                 try
@@ -195,7 +195,7 @@ public class DebtCalculatorFragment extends MainBaseFragment implements DebtCalc
     private void showAlertDialog(double rest) {
         new AlertDialog.Builder(parentActivity)
                 .setTitle("Attention")
-                .setMessage("Redundancy is " + String.format("%.2f",rest) + " $"+ "\n" + "Continue?")
+                .setMessage("Redundancy Debt is " + String.format("%.2f",rest) + " $"+ "\n" + "Continue?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

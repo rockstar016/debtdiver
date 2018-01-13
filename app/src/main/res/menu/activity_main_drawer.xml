@@ -13,7 +13,7 @@
         <item
             android:id="@+id/navDebit"
             android:icon="@drawable/ic_nav_debit"
-            android:title="Debits" />
+            android:title="Debts" />
 
         <item
             android:id="@+id/navPayment"

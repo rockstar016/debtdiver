@@ -15,6 +15,10 @@ public class DebtInfo implements Serializable {
     String amount;
     String current_paid;
     String paypal_address;
+    //additional
+    String debtPhone;
+    String debtAddress;
+    String debtAccountNumber;
     boolean edited = false;
     boolean calcCompleted;
     boolean finished = false;
@@ -27,6 +31,30 @@ public class DebtInfo implements Serializable {
         this.amount = amount;
     }
 
+    public String getDebtPhone() {
+        return debtPhone;
+    }
+
+    public void setDebtPhone(String debtPhone) {
+        this.debtPhone = debtPhone;
+    }
+
+    public String getDebtAddress() {
+        return debtAddress;
+    }
+
+    public void setDebtAddress(String debtAddress) {
+        this.debtAddress = debtAddress;
+    }
+
+    public String getDebtAccountNumber() {
+        return debtAccountNumber;
+    }
+
+    public void setDebtAccountNumber(String debtAccountNumber) {
+        this.debtAccountNumber = debtAccountNumber;
+    }
+
     public DebtInfo(JSONObject item) {
         try {
             this.id = item.getString("ID");
@@ -34,12 +62,19 @@ public class DebtInfo implements Serializable {
             this.amount = item.getString("DEBT_AMOUNT");
             this.current_paid = item.getString("DEBT_CURRENT_PAID");
             this.paypal_address = item.getString("DEBT_EMAIL");
+            this.debtPhone = item.getString("DEBT_PHONE");
+            this.debtAddress = item.getString("DEBT_ADDR");
+            this.debtAccountNumber = item.getString("DEBT_ACCOUNT");
         } catch (JSONException e) {
             this.id = "";
             this.name = "";
+
             this.amount = "";
             this.current_paid = "";
             this.paypal_address = "";
+            this.debtAccountNumber = "";
+            this.debtPhone = "";
+            this.debtAddress = "";
 
             e.printStackTrace();
         }

@@ -5,18 +5,18 @@
     android:padding="@dimen/fab_margin"
     android:background="@color/colorGray">
     <TextView
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:id="@+id/txtTitle"
-        android:text="Debit Total Paid:"
+        android:text="Total Debts Paid:"
         android:layout_centerVertical="true" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtTotal"
         android:layout_toRightOf="@id/txtTitle"
-        android:text="123,000.1235$"
-        android:textSize="@dimen/large_text_size"
+        android:text="1111.11/1111.11"
+        android:textSize="24sp"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         android:layout_centerVertical="true"

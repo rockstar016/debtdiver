@@ -5,4 +5,9 @@
     <color name="colorAccent">#15586e</color>
     <color name="colorGray">#eee</color>
     <color name="white">#ffffff</color>
+    <color name="green">#02ba02</color>
+    <color name="progress">#0099cc</color>
+    <color name="green_icon">#008f00</color>
+    <color name="divider">#514f4f</color>
+    <color name="black">#000000</color>
 </resources>
